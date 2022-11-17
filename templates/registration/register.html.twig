@@ -1,0 +1,39 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h1 class="my-5 text-center">
+                Créer un compte
+                <hr>
+            </h1>
+            {{ form_start(registrationForm, {'attr': {'novalidate': 'novalidate'}}) }}
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form_row(registrationForm.firstName) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_row(registrationForm.lastName) }}
+                    </div>
+                </div>
+                {{ form_row(registrationForm.email) }}
+                {{ form_row(registrationForm.plainPassword) }}
+                {{ form_row(registrationForm.agreeTerms) }}
+                <div class="row">
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            S'inscrire
+                        </button>
+                    </div>    
+                </div>
+                <p class="mt-5 mb-3 text-center text-muted">
+                    Déjà inscrit(e) ? 
+                    <a href="{{ path('app_login') }}">Se connecter</a>
+                </p>
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
+{% endblock %}

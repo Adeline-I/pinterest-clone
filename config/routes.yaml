@@ -1,0 +1,77 @@
+# app_home:
+#   path: /
+#   controller: App\Controller\PinsController::index
+#   methods: GET
+
+# app_pins_create:
+#   path: /epingles/creer
+#   controller: App\Controller\PinsController::create
+#   methods: GET|POST
+
+# app_pins_show:
+#   path: /epingles/{id}
+#   controller: App\Controller\PinsController::show
+#   methods: GET
+#   requirements:
+#     # Ajout d'une expression régulière à l'id afin de spécifier qu'il s'agit d'une combinaison de chiffres
+#     id: "[0-9]+"
+
+# app_pins_edit:
+#   path: /epingles/{id}/modifier
+#   controller: App\Controller\PinsController::edit
+#   methods: GET|PUT
+#   requirements:
+#     # Ajout d'une expression régulière à l'id afin de spécifier qu'il s'agit d'une combinaison de chiffres
+#     id: "[0-9]+"
+
+# app_pins_delete:
+#   path: /epingles/{id}/supprimer
+#   controller: App\Controller\PinsController::delete
+#   methods: DELETE
+#   requirements:
+#     # Ajout d'une expression régulière à l'id afin de spécifier qu'il s'agit d'une combinaison de chiffres
+#     id: "[0-9]+"
+
+# app_login:
+#   path: /connexion
+#   controller: App\Controller\SecurityController::login
+
+# app_logout:
+#   path: /deconnection
+#   controller: App\Controller\SecurityController::logout
+#   methods: POST
+
+# app_register:
+#   path: /inscription
+#   controller: App\Controller\RegistrationController::register
+
+# app_verify_email:
+#   path: /verifier/email
+#   controller: App\Controller\RegistrationController::verifyUserEmail
+
+# app_forgot_password_request:
+#   path: /reinitialiser-mot-de-passe
+#   controller: App\Controller\ResetPasswordController::request
+
+# app_check_email:
+#   path: /reinitialiser-mot-de-passe/verifier-email
+#   controller: App\Controller\ResetPasswordController::checkEmail
+
+# app_reset_password:
+#   path: /reinitialiser-mot-de-passe/reinitialiser/{token}
+#   controller: App\Controller\ResetPasswordController::reset
+
+app_account:
+  path: /compte
+  controller: App\Controller\AccountController::show
+  methods: GET
+
+app_account_edit:
+  path: /compte/modifier
+  controller: App\Controller\AccountController::edit
+  methods: GET|PATCH
+
+app_account_change_password:
+  path: /compte/changer-mot-de-passe
+  controller: App\Controller\AccountController::changePassword
+  methods: GET|PATCH

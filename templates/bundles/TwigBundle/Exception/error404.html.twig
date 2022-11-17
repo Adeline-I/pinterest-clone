@@ -1,0 +1,18 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %}Erreur 404 - Page non trouvée{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-6 mx-auto text-center">
+            <h1 class="mt-5 mb-3">Oops! Une erreur s'est produite.</h1>
+            <h2 class="mt-5 mb-3">Le serveur a renvoyé une erreur "404 - Page non trouvée".</h2>
+            <hr>
+            <p class="mt-3">
+                Quelque chose est cassé. Veuillez nous indiquer ce que vous faisiez lorsque cette erreur s'est produite. Nous allons le réparer dès que possible. Désolé pour la gêne occasionnée.
+                Retournez à la <a href="{{ path('app_home') }}">page d'accueil</a>.
+            </p>        
+        </div>
+    </div>
+    
+{% endblock %}

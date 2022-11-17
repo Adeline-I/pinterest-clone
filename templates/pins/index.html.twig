@@ -1,0 +1,57 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %}Retrouvez toutes les meilleures épingles du monde !{% endblock %}
+
+{% block body %}
+	{# {% for flash_error in app.flashes('verify_email_error') %}
+		<div class="alert alert-error rounded mb-3" role="alert">{{ flash_error }}</div>
+	{% endfor %} #}
+	{% if pins|length > 0 %}
+		<h1 class="mb-4 text-center text-muted">
+			{{ pluralize(pins|length, 'Épingle') }}
+		</h1>
+		{# batch -> regrouper par lot #}
+		{% for row in pins|batch(3) %}
+			<div class="row mb-5">
+				{% for pin in row %}
+					<div class="col-md-4">
+						<article class="pin bg-white rounded shadow">
+							<div class="mw-100  rounded-top overflow-hidden">
+								<a href="{{ path('app_pins_show', {'id': pin.id}) }}">
+									<img src="{{ (pin.imageName ? vich_uploader_asset(pin) : asset('build/images/placeholder.jpg')) | imagine_filter('squared_thumbnail_medium') }}" alt="{{ pin.title }}" class="w-100">
+								</a>
+							</div>
+							<h2 class="h5 ps-3 pt-3">
+								<a href="{{ path('app_pins_show', {'id': pin.id}) }}" class="text-secondary text-decoration-none">
+									{{ pin.title }}
+								</a>
+							</h2>
+							<hr>
+							{# <p>{{ pin.description|u.truncate(10, '...', false) }}</p> #}
+							{# <p>Créée {{ pin.createdAt|ago }}</p> #}
+							<p class="ps-3 pb-3 text-muted">
+								<small>Créée par {{ pin.user.fullName }}</small>
+							</p>
+							{# <div>
+								<a href="#" onclick="event.preventDefault(); confirm('Êtes-vous sûr de vouloir supprimer cette épingle ?') && 
+									document.getElementById('js-pin-delete-form-{{ pin.id }}').submit();" class="m-3 btn btn-danger">&times; Supprimer</a>
+								<form id="js-pin-delete-form-{{ pin.id }}" action="{{ path('app_pins_delete', {id:pin.id}) }}" method="post" style="display: none;">
+									<input type="hidden" name="csrf_token" value="{{ csrf_token('pinsdeletion' ~ pin.id) }}">
+									<input type="hidden" name="_method" value="DELETE">
+								</form>                
+							</div> #}
+						</article>
+					</div>
+				{% endfor %}
+			</div>
+		{% endfor %}
+
+	{% else %}
+		<p  class="mt-5 h1 text-center">
+			Désolé, pas encore d'épingles !
+			<a href="{{ path('app_pins_create') }}">
+				Première création !
+			</a>
+		</p>
+	{% endif %}
+{% endblock %}

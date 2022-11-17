@@ -1,0 +1,17 @@
+<h1>Bonjour !</h1>
+
+<p>Pour réinitialiser votre mot de passe, veuillez visiter le lien suivant : &#x1F447;</p>
+
+<p>
+    &#x1F517;
+    <a href="{{ url('app_reset_password', {token: resetToken.token}) }}">
+        Changer mon mot de passe
+    </a>    
+    .
+</p>
+
+<p>&#x23F3; Ce lien expirera dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.</p>
+
+<p>À bientôt ! &#x1F590;</p>
+
+<p>L'équipe Panterest</p>

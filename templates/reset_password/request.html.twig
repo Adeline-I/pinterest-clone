@@ -1,0 +1,30 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %}Réinitialisez votre mot de passe{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h1 class="mt-5 mb-3 text-center">
+                Réinitialisez votre mot de passe
+            </h1>
+            <hr>
+            {% for flash_error in app.flashes('reset_password_error') %}
+                <div class="alert alert-error mb-3 rounded" role="alert">{{ flash_error }}</div>
+            {% endfor %}
+            <p class="mb-5 text-center text-muted">
+                Entrez votre adresse email et nous vous enverrons un lien pour réinitialiser votre mot de passe.
+            </p>
+            {{ form_start(requestForm, {'attr': {'novalidate': 'novalidate'}}) }}
+                {{ form_row(requestForm.email) }}
+                <div class="row">
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            Envoyer
+                        </button>
+                    </div>    
+                </div>
+            {{ form_end(requestForm) }}
+        </div>
+    </div>
+{% endblock %}

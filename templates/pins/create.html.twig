@@ -1,0 +1,18 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %}Créer une épingle{% endblock %}
+
+{% block body %}
+
+	<div class="row">
+		<div class="col-md-6 mx-auto">
+			<h1 class="my-5 text-center">
+				Créer une épingle
+				<hr>
+			</h1>
+			{# Insertion du fichier de formulaire par la fonction include  #}
+			{{ include('pins/_form.html.twig', {'submitButtonText': 'Créer'}) }}		
+		</div>
+	</div>
+	
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %}Admin
+{% endblock %}
+
+{% block body %}
+
+<h1>Admin</h1>
+
+{% if is_granted('ROLE_ADMIN') %}
+    <p>Cool</p>
+{% endif %}
+
+{% endblock %}

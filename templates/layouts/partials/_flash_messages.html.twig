@@ -1,0 +1,8 @@
+{# Affichage des différents messages flash #}
+{% for type, messages in app.flashes(['success', 'error', 'info']) %}
+    {% for message in messages %}
+        <div class="alert alert-{{ type }}" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}

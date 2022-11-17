@@ -1,0 +1,24 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %}Réinitialisez votre mot de passe{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h1 class="mt-5 mb-3 text-center">
+                Réinitialisez votre mot de passe
+            </h1>
+            <hr>
+            {{ form_start(resetForm, {'attr': {'novalidate': 'novalidate'}}) }}
+                {{ form_row(resetForm.plainPassword) }}
+                <div class="row">
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            Enregistrer
+                        </button>
+                    </div>    
+                </div>
+            {{ form_end(resetForm) }}
+        </div>
+    </div>
+{% endblock %}

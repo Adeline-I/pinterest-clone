@@ -1,0 +1,11 @@
+{# Début du formulaire #}
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    {# Ajout des différents champs de formulaire #}
+    {{ form_widget(form) }}
+    <div class="row">
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <input type="submit" value="{{ submitButtonText ?? 'Enregistrer' }}" class="btn btn-primary btn-lg">
+        </div>    
+    </div>
+{# Fin du formulaire #}
+{{ form_end(form) }}
